@@ -3,11 +3,11 @@ import {io} from 'socket.io-client'
 
 const Socketcontext = React.createContext(null)
 
-function Socket() {
+export const SocketProvider = (props) =>{
+  const socket = useMemo(() => io('http://localhost:3001'), [])
   return (
-    <div>
-      
-    </div>
+    <Socketcontext.Provider value={useMemo(() => io('http://localhost:3001'),
+    [])}></Socketcontext.Provider>
   )
 }
 
